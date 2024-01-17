@@ -23,11 +23,4 @@ public class MaladieController extends OnlyNameController<Maladie, MaladieReposi
         return this.getRepository().save(maladie);
     }
 
-    @Override
-    public Maladie update(Integer id, OnlyNomRecord body) {
-        Maladie maladie = this.getRepository().findById(id).get();
-        maladie.setNom(body.nom());
-        return maladie;
-    }
-
 }

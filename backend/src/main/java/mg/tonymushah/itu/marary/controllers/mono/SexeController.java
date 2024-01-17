@@ -22,12 +22,4 @@ public class SexeController extends OnlyNameController<Sexe, SexeRepository> {
         return this.getRepository().save(new Sexe(input.nom()));
     }
 
-    @Override
-    public Sexe update(Integer id, OnlyNomRecord body) {
-        Sexe data = this.getUnique(id);
-        data.setNom(body.nom());
-        this.getRepository().save(data);
-        return data;
-    }
-
 }

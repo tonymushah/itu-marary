@@ -54,4 +54,12 @@ public abstract class OnlyNameController<T extends EntityWithIDAndNom, R extends
         return data;
     }
 
+    @Override
+    public T update(Integer id, OnlyNomRecord body) {
+        T data = this.getUnique(id);
+        data.setNom(body.nom());
+        this.getRepository().save(data);
+        return data;
+    }
+
 }
