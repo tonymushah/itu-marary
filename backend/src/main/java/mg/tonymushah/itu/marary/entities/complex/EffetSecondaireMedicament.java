@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.util.Optional;
 import mg.tonymushah.itu.marary.entities.abstracts.EntityWithID;
@@ -17,6 +18,7 @@ import mg.tonymushah.itu.marary.repositories.mono.SymptomeRepository;
 public class EffetSecondaireMedicament extends EntityWithID {
     @Id
     @Column(name = "id")
+    @SequenceGenerator(name = "effet_secondaire_medicament_id_seq", sequenceName = "effet_secondaire_medicament_id_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "effet_secondaire_medicament_id_seq")
     private Integer id;
     @Column(name = "id_medicament", nullable = false)
