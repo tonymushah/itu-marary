@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import mg.tonymushah.itu.marary.repositories.mono.SexeRepository;
 public class Personne extends EntityWithIDAndNom {
     @Id
     @Column(name = "id")
+    @SequenceGenerator(name = "personne_id_seq", sequenceName = "personne_id_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personne_id_seq")
     private int id;
     @Column(name = "prenom", nullable = false)
