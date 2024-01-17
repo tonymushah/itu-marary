@@ -1,9 +1,8 @@
 package mg.tonymushah.itu.marary.repositories.complex;
 
-import org.springframework.data.repository.CrudRepository;
-
 import mg.tonymushah.itu.marary.entities.complex.Medicament;
+import mg.tonymushah.itu.marary.repositories.MyRepositoryInterface;
 
-public interface MedicamentRepository extends CrudRepository<Medicament, Integer> {
+public interface MedicamentRepository extends MyRepositoryInterface<Medicament, Integer> {
 
 }

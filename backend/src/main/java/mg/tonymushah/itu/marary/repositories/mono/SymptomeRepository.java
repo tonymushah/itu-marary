@@ -1,9 +1,8 @@
 package mg.tonymushah.itu.marary.repositories.mono;
 
-import org.springframework.data.repository.CrudRepository;
-
 import mg.tonymushah.itu.marary.entities.mono.Symptome;
+import mg.tonymushah.itu.marary.repositories.MyNomRepositoryInterface;
 
-public interface SymptomeRepository extends CrudRepository<Symptome, Integer> {
-    
+public interface SymptomeRepository extends MyNomRepositoryInterface<Symptome, Integer> {
+
 }
