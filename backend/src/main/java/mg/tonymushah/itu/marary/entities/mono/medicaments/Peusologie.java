@@ -14,7 +14,7 @@ import mg.tonymushah.itu.marary.entities.abstracts.EntityWithIDAndNom;
 public class Peusologie extends EntityWithIDAndNom {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "pseulogie_id_seq", sequenceName = "pseulogie_id_seq")
+    @SequenceGenerator(name = "pseulogie_id_seq", sequenceName = "pseulogie_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pseulogie_id_seq")
     private int id;
 

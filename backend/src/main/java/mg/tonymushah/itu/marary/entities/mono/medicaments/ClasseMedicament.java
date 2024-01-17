@@ -15,7 +15,7 @@ public class ClasseMedicament extends EntityWithIDAndNom {
 
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "classe_medicament_id_seq", sequenceName = "classe_medicament_id_seq")
+    @SequenceGenerator(name = "classe_medicament_id_seq", sequenceName = "classe_medicament_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "classe_medicament_id_seq")
     private int id;
 

@@ -14,7 +14,7 @@ import mg.tonymushah.itu.marary.entities.abstracts.EntityWithIDAndNom;
 public class Symptome extends EntityWithIDAndNom {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "symptomes_id_seq", sequenceName = "symptomes_id_seq")
+    @SequenceGenerator(name = "symptomes_id_seq", sequenceName = "symptomes_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "symptomes_id_seq")
     private int id;
 
