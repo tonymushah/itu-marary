@@ -17,7 +17,7 @@ public class Personne extends EntityWithIDAndNom {
     @Column(name = "date_naissance", nullable = false)
     private Date date_naissance;
     @Column(name = "address")
-    private Optional<String> address = Optional.empty();
+    private String address;
     @Column(name = "id_sexe", nullable = false)
     private int id_sexe;
 
@@ -38,11 +38,11 @@ public class Personne extends EntityWithIDAndNom {
     }
 
     public Optional<String> getAddress() {
-        return address;
+        return Optional.ofNullable(address);
     }
 
     public void setAddress(Optional<String> address) {
-        this.address = address;
+        this.address = address.orElse(null);
     }
 
     public int getId_sexe() {

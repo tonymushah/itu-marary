@@ -18,46 +18,46 @@ import mg.tonymushah.itu.marary.repositories.mono.medicaments.TypeMedicamentRepo
 @Table(name = "medicament")
 public class Medicament extends EntityWithIDAndNom {
     @Column(name = "id_pseulogie")
-    private Optional<Integer> idPeusologie = Optional.empty();
+    private Integer idPeusologie = null;
     @Column(name = "id_classe")
-    private Optional<Integer> idClasse = Optional.empty();
+    private Integer idClasse = null;
     @Column(name = "id_type")
-    private Optional<Integer> idType = Optional.empty();
+    private Integer idType = null;
     @Column(name = "id_methode")
-    private Optional<Integer> idMethode = Optional.empty();
-    @Column(name = "prix_unitaire")
+    private Integer idMethode = null;
+    @Column(name = "prix_unitaire", nullable = false)
     private int prixUnitaire;
 
     public Optional<Integer> getIdPeusologie() {
-        return idPeusologie;
+        return Optional.ofNullable(idPeusologie);
     }
 
     public void setIdPeusologie(Optional<Integer> idPeusologie) {
-        this.idPeusologie = idPeusologie;
+        this.idPeusologie = idPeusologie.orElse(null);
     }
 
     public Optional<Integer> getIdClasse() {
-        return idClasse;
+        return Optional.ofNullable(idClasse);
     }
 
     public void setIdClasse(Optional<Integer> idClasse) {
-        this.idClasse = idClasse;
+        this.idClasse = idClasse.orElse(null);
     }
 
     public Optional<Integer> getIdType() {
-        return idType;
+        return Optional.ofNullable(idType);
     }
 
     public void setIdType(Optional<Integer> idType) {
-        this.idType = idType;
+        this.idType = idType.orElse(null);
     }
 
     public Optional<Integer> getIdMethode() {
-        return idMethode;
+        return Optional.ofNullable(idMethode);
     }
 
     public void setIdMethode(Optional<Integer> idMethode) {
-        this.idMethode = idMethode;
+        this.idMethode = idMethode.orElse(null);
     }
 
     public int getPrixUnitaire() {

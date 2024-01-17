@@ -1,10 +1,12 @@
 package mg.tonymushah.itu.marary.entities.abstracts;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 
 /**
  * EntityWithIDAndName
  */
+@MappedSuperclass
 public abstract class EntityWithIDAndNom extends EntityWithID {
 
     @Column(name = "nom", nullable = false)
