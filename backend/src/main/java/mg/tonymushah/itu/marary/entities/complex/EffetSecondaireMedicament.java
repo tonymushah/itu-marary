@@ -18,7 +18,7 @@ import mg.tonymushah.itu.marary.repositories.mono.SymptomeRepository;
 public class EffetSecondaireMedicament extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "effet_secondaire_medicament_id_seq", sequenceName = "effet_secondaire_medicament_id_seq")
+    @SequenceGenerator(name = "effet_secondaire_medicament_id_seq", sequenceName = "effet_secondaire_medicament_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "effet_secondaire_medicament_id_seq")
     private Integer id;
     @Column(name = "id_medicament", nullable = false)

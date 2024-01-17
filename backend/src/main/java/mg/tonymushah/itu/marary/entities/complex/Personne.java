@@ -18,7 +18,7 @@ import mg.tonymushah.itu.marary.repositories.mono.SexeRepository;
 public class Personne extends EntityWithIDAndNom {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "personne_id_seq", sequenceName = "personne_id_seq")
+    @SequenceGenerator(name = "personne_id_seq", sequenceName = "personne_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personne_id_seq")
     private int id;
     @Column(name = "prenom", nullable = false)

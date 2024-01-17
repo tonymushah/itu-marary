@@ -17,7 +17,7 @@ import mg.tonymushah.itu.marary.repositories.complex.PersonneRepository;
 public class Consultation extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "consultation_id_seq", sequenceName = "consultation_id_seq")
+    @SequenceGenerator(name = "consultation_id_seq", sequenceName = "consultation_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consultation_id_seq")
     private int id;
     @Column(name = "date_consul", nullable = false)

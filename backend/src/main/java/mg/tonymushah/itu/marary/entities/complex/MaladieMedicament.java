@@ -18,7 +18,7 @@ import mg.tonymushah.itu.marary.repositories.mono.MaladieRepository;
 public class MaladieMedicament extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "maladie_medicament_id_seq", sequenceName = "maladie_medicament_id_seq")
+    @SequenceGenerator(name = "maladie_medicament_id_seq", sequenceName = "maladie_medicament_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maladie_medicament_id_seq")
     public Integer id;
     @Column(name = "id_medicament", nullable = false)

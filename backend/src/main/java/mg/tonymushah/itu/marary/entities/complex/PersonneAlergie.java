@@ -17,7 +17,7 @@ import mg.tonymushah.itu.marary.repositories.complex.PersonneRepository;
 public class PersonneAlergie extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "personne_alergies_id_seq", sequenceName = "personne_alergies_id_seq")
+    @SequenceGenerator(name = "personne_alergies_id_seq", sequenceName = "personne_alergies_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personne_alergies_id_seq")
     private int id;
     @Column(name = "id_personne", nullable = false)

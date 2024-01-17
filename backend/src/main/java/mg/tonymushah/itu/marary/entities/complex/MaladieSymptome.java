@@ -20,7 +20,7 @@ import mg.tonymushah.itu.marary.repositories.mono.SymptomeRepository;
 public class MaladieSymptome extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "maladie_symptome_id_seq", sequenceName = "maladie_symptome_id_seq")
+    @SequenceGenerator(name = "maladie_symptome_id_seq", sequenceName = "maladie_symptome_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maladie_symptome_id_seq")
     private int id;
     @Column(name = "id_symptome", nullable = false)

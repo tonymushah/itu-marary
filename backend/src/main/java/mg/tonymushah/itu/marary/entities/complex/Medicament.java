@@ -23,7 +23,7 @@ import mg.tonymushah.itu.marary.repositories.mono.medicaments.TypeMedicamentRepo
 public class Medicament extends EntityWithIDAndNom {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "medicament_id_seq", sequenceName = "medicament_id_seq")
+    @SequenceGenerator(name = "medicament_id_seq", sequenceName = "medicament_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "medicament_id_seq")
     private int id;
     @Column(name = "id_pseulogie")

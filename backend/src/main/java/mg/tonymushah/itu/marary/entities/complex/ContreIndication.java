@@ -16,7 +16,7 @@ import mg.tonymushah.itu.marary.repositories.complex.MedicamentRepository;
 public class ContreIndication extends EntityWithID {
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "contre_indication_id_seq", sequenceName = "contre_indication_id_seq")
+    @SequenceGenerator(name = "contre_indication_id_seq", sequenceName = "contre_indication_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contre_indication_id_seq")
     private Integer id;
     @Column(name = "medicament_1", nullable = false)

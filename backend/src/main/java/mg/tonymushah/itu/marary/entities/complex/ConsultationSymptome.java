@@ -19,7 +19,7 @@ public class ConsultationSymptome extends EntityWithID {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consultation_symptome_id_seq")
-    @SequenceGenerator(name = "consultation_symptome_id_seq", sequenceName = "consultation_symptome_id_seq")
+    @SequenceGenerator(name = "consultation_symptome_id_seq", sequenceName = "consultation_symptome_id_seq", allocationSize = 1)
     private Integer id;
 
     @Column(name = "id_symptome", nullable = false)
