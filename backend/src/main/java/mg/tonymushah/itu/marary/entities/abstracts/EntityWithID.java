@@ -1,25 +1,18 @@
 package mg.tonymushah.itu.marary.entities.abstracts;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
+@Embeddable
 public abstract class EntityWithID {
-    @Id
-    @Column(name = "id", insertable = false, unique = true, updatable = false)
-    private int id;
 
-    public int getId() {
-        return id;
-    }
+    public abstract int getId();
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public abstract void setId(int id);
 
     public EntityWithID(int id) {
-        this.id = id;
+        this.setId(id);
     }
 
     public EntityWithID() {

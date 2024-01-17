@@ -4,5 +4,6 @@
     "[java]": {
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.formatOnSave": true
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

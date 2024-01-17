@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import mg.tonymushah.itu.marary.controllers.interfaces.CreateControllerInterface;
 import mg.tonymushah.itu.marary.controllers.interfaces.DeleteControllerInterface;
 import mg.tonymushah.itu.marary.controllers.interfaces.UpdateControllerInterface;
+import mg.tonymushah.itu.marary.entities.abstracts.EntityWithIDAndNom;
 import mg.tonymushah.itu.marary.repositories.MyNomRepositoryInterface;
 
-public abstract class OnlyNameController<T, I, R extends MyNomRepositoryInterface<T, I>, B> implements
-        CreateControllerInterface<B, T>, DeleteControllerInterface<I, T>, UpdateControllerInterface<I, B, T> {
+public abstract class OnlyNameController<T extends EntityWithIDAndNom, I, R extends MyNomRepositoryInterface<T, I>, B>
+        implements
+        CreateControllerInterface<B, T>, DeleteControllerInterface<I, T>,
+        UpdateControllerInterface<I, B, T> {
     private R repository;
 
     public R getRepository() {
@@ -27,15 +30,20 @@ public abstract class OnlyNameController<T, I, R extends MyNomRepositoryInterfac
         this.repository = repository;
     }
 
-    @GetMapping(value = { "/{id}", "/{id}/" })
+    @GetMapping("/{id}/")
     public T getUnique(@PathVariable("id") I id) {
         return this.getRepository().findById(id).get();
     }
 
-    @GetMapping(value = { "/", "" })
-    public Page<T> get(@RequestParam(name = "offset", defaultValue = "0") int offset,
-            @RequestParam(name = "limit", defaultValue = "10") int limit, @RequestParam(name = "nom") String nom) {
-        return this.getRepository().findByNomLike(nom, PageRequest.of(offset, limit));
+    @GetMapping("/")
+    public Page<T> get(@RequestParam(name = "offset", defaultValue = "0", required = false) int offset,
+            @RequestParam(name = "limit", defaultValue = "10", required = false) int limit,
+            @RequestParam(name = "nom", required = false, defaultValue = "") String nom) {
+        if (nom.isEmpty()) {
+            return this.getRepository().findAll(PageRequest.of(offset, limit));
+        } else {
+            return this.getRepository().findByNomLike(nom, PageRequest.of(offset, limit));
+        }
     }
 
     @Override
