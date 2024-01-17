@@ -2,6 +2,9 @@ package mg.tonymushah.itu.marary.entities.complex;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Date;
 import java.util.Optional;
@@ -12,6 +15,10 @@ import mg.tonymushah.itu.marary.repositories.mono.SexeRepository;
 @Entity
 @Table(name = "personne")
 public class Personne extends EntityWithIDAndNom {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "personne_id_seq")
+    private int id;
     @Column(name = "prenom", nullable = false)
     private String prenom;
     @Column(name = "date_naissance", nullable = false)
@@ -75,4 +82,15 @@ public class Personne extends EntityWithIDAndNom {
         this.setAddress(address);
         this.setId_sexe(id_sexe);
     }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

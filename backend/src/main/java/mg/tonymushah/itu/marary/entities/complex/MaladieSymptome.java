@@ -1,9 +1,13 @@
 package mg.tonymushah.itu.marary.entities.complex;
 
+import java.util.Optional;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.Optional;
 import mg.tonymushah.itu.marary.entities.abstracts.EntityWithID;
 import mg.tonymushah.itu.marary.entities.mono.Maladie;
 import mg.tonymushah.itu.marary.entities.mono.Symptome;
@@ -13,6 +17,10 @@ import mg.tonymushah.itu.marary.repositories.mono.SymptomeRepository;
 @Entity
 @Table(name = "maladie_symptome")
 public class MaladieSymptome extends EntityWithID {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maladie_symptome_id_seq")
+    private int id;
     @Column(name = "id_symptome", nullable = false)
     private int idSymptome;
     @Column(name = "id_maladie", nullable = false)
@@ -66,6 +74,16 @@ public class MaladieSymptome extends EntityWithID {
         this.setDegree(degree);
         this.setIdMaladie(idMaladie);
         this.setIdSymptome(idSymptome);
+    }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

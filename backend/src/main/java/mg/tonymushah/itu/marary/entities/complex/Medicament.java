@@ -2,6 +2,9 @@ package mg.tonymushah.itu.marary.entities.complex;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Optional;
 import mg.tonymushah.itu.marary.entities.abstracts.EntityWithIDAndNom;
@@ -17,6 +20,10 @@ import mg.tonymushah.itu.marary.repositories.mono.medicaments.TypeMedicamentRepo
 @Entity
 @Table(name = "medicament")
 public class Medicament extends EntityWithIDAndNom {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "medicament_id_seq")
+    private int id;
     @Column(name = "id_pseulogie")
     private Integer idPeusologie = null;
     @Column(name = "id_classe")
@@ -106,4 +113,15 @@ public class Medicament extends EntityWithIDAndNom {
     public Optional<MethodeApplication> getApplicationMethode(MethodeApplicationRepository repository) {
         return this.getIdMethode().flatMap(id -> repository.findById(id));
     }
+
+    @Override
+    public int getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
