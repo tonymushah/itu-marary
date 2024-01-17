@@ -3,6 +3,7 @@ package mg.tonymushah.itu.marary.repositories.complex;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 
 import mg.tonymushah.itu.marary.entities.complex.Consultation;
 import mg.tonymushah.itu.marary.repositories.MyRepositoryInterface;
