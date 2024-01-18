@@ -3,6 +3,7 @@ package mg.tonymushah.itu.marary.controllers.abstracts;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
 import mg.tonymushah.itu.marary.controllers.interfaces.CreateControllerInterface;
 import mg.tonymushah.itu.marary.controllers.interfaces.DeleteControllerInterface;
@@ -40,7 +41,7 @@ public abstract class MyAbstractController<T, R extends MyRepositoryInterface<T,
     }
 
     @GetMapping("/all")
-    public Iterable<T> getAll(@RequestParam(name = "ids", required = false) Iterable<Integer> ids) {
+    public Iterable<T> getAll(@RequestParam(name = "ids", required = false) List<Integer> ids) {
         if (ids == null) {
             return repository.findAll();
         } else {
