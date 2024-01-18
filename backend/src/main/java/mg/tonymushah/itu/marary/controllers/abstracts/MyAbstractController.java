@@ -1,5 +1,8 @@
 package mg.tonymushah.itu.marary.controllers.abstracts;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import mg.tonymushah.itu.marary.controllers.interfaces.CreateControllerInterface;
 import mg.tonymushah.itu.marary.controllers.interfaces.DeleteControllerInterface;
 import mg.tonymushah.itu.marary.controllers.interfaces.UpdateControllerInterface;
@@ -28,5 +31,10 @@ public abstract class MyAbstractController<T, R extends MyRepositoryInterface<T,
         T data = this.getRepository().findById(id).get();
         this.getRepository().delete(data);
         return data;
+    }
+
+    @GetMapping("/{id}")
+    public T getUnique(@PathVariable("id") Integer id) {
+        return this.getRepository().findById(id).get();
     }
 }
