@@ -1,6 +1,10 @@
 package mg.tonymushah.itu.marary.controllers.complex;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mg.tonymushah.itu.marary.controllers.abstracts.MyAbstractController;
@@ -15,6 +19,12 @@ public class ConsultationController
 
     public ConsultationController(ConsultationRepository repository) {
         super(repository);
+    }
+
+    @GetMapping("")
+    public Page<Consultation> search(@RequestParam(name = "offset", defaultValue = "0") int offset,
+            @RequestParam(name = "limit", defaultValue = "10") int limit) {
+        return this.getRepository().findAll(PageRequest.of(offset, limit));
     }
 
     @Override
