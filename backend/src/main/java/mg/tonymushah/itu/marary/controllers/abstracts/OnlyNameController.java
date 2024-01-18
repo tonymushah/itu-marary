@@ -6,29 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import mg.tonymushah.itu.marary.controllers.interfaces.CreateControllerInterface;
-import mg.tonymushah.itu.marary.controllers.interfaces.DeleteControllerInterface;
-import mg.tonymushah.itu.marary.controllers.interfaces.UpdateControllerInterface;
 import mg.tonymushah.itu.marary.entities.abstracts.EntityWithIDAndNom;
 import mg.tonymushah.itu.marary.inputs.records.OnlyNomRecord;
 import mg.tonymushah.itu.marary.repositories.MyNomRepositoryInterface;
 
 public abstract class OnlyNameController<T extends EntityWithIDAndNom, R extends MyNomRepositoryInterface<T, Integer>>
-        implements
-        CreateControllerInterface<OnlyNomRecord, T>, DeleteControllerInterface<Integer, T>,
-        UpdateControllerInterface<Integer, OnlyNomRecord, T> {
-    private R repository;
-
-    public R getRepository() {
-        return repository;
-    }
-
-    public void setRepository(R repository) {
-        this.repository = repository;
-    }
+        extends MyAbstractController<T, R, OnlyNomRecord> {
 
     public OnlyNameController(R repository) {
-        this.repository = repository;
+        super(repository);
     }
 
     @GetMapping("/{id}")
@@ -45,13 +31,6 @@ public abstract class OnlyNameController<T extends EntityWithIDAndNom, R extends
         } else {
             return this.getRepository().findByNomLike(nom, PageRequest.of(offset, limit));
         }
-    }
-
-    @Override
-    public T delete(Integer id) {
-        T data = this.getRepository().findById(id).get();
-        this.getRepository().delete(data);
-        return data;
     }
 
     @Override
