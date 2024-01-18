@@ -1,0 +1,9 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "kotlin.compiler.jvm.target": "17",
+    "[java]": {
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.formatOnSave": true
+    },
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
