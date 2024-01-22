@@ -9,14 +9,14 @@
  * ---------------------------------------------------------------
  */
 
-import {
+import type {
 	OnlyNomRecord,
 	PageSymptome,
-	Symptome,
+	Symptome as Symptom,
 	SymptomeMedicament,
 	SymptomeMedicamentRecord
 } from './data-contracts';
-import { ContentType, HttpClient, RequestParams } from './http-client';
+import { ContentType, HttpClient, type RequestParams } from './http-client';
 
 export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
 	/**
@@ -27,7 +27,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 	 * @request GET:/symptome/{id}
 	 */
 	getUnique = (id: number, params: RequestParams = {}) =>
-		this.request<Symptome, any>({
+		this.request<Symptom, any>({
 			path: `/symptome/${id}`,
 			method: 'GET',
 			...params
@@ -40,7 +40,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 	 * @request PUT:/symptome/{id}
 	 */
 	update = (id: number, data: OnlyNomRecord, params: RequestParams = {}) =>
-		this.request<Symptome, any>({
+		this.request<Symptom, any>({
 			path: `/symptome/${id}`,
 			method: 'PUT',
 			body: data,
@@ -55,7 +55,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 	 * @request DELETE:/symptome/{id}
 	 */
 	delete = (id: number, params: RequestParams = {}) =>
-		this.request<Symptome, any>({
+		this.request<Symptom, any>({
 			path: `/symptome/${id}`,
 			method: 'DELETE',
 			...params
@@ -139,7 +139,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 	 * @request POST:/symptome
 	 */
 	create = (data: OnlyNomRecord, params: RequestParams = {}) =>
-		this.request<Symptome, any>({
+		this.request<Symptom, any>({
 			path: `/symptome`,
 			method: 'POST',
 			body: data,
@@ -174,7 +174,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 		},
 		params: RequestParams = {}
 	) =>
-		this.request<object, any>({
+		this.request<SymptomeMedicament[], any>({
 			path: `/symptome/medicament/all`,
 			method: 'GET',
 			query: query,
@@ -193,7 +193,7 @@ export class Symptome<SecurityDataType = unknown> extends HttpClient<SecurityDat
 		},
 		params: RequestParams = {}
 	) =>
-		this.request<object, any>({
+		this.request<Symptom[], any>({
 			path: `/symptome/all`,
 			method: 'GET',
 			query: query,
